@@ -1,5 +1,10 @@
 body {
 	background-color: #FFFFF0;
+    width: 960px;
+	margin: auto;
+	font-size: 18px;
+	font-family: "Saira Semi Condensed", sans-serif;
+	color: #00008B;
 }
 
 a {
@@ -11,14 +16,6 @@ a {
 a:hover {
 	border-bottom: 2px dotted #FF9900;
 	color: #800080;
-}
-
-.content {
-	width: 960px;
-	margin: auto;
-	font-size: 18px;
-	font-family: "Saira Semi Condensed", sans-serif;
-	color: #00008B;
 }
 
 .base_hr {
