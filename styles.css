@@ -31,7 +31,7 @@ a:hover {
 	background-image: linear-gradient(to right, #F0FFFF, #0000CD, #F0FFFF);
 }
 
-.heading {
+header h3 {
 	text-align: center;
 	font-size: 50px;
 	font-family: "Tangerine", sans-serif;
