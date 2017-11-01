@@ -168,8 +168,8 @@ function playOneRound() {
 }
 
 function updateCards(p1Card, p2Card) {
-    $("#p1Card").attr("src", "images/" + p1Card + ".svg");
-    $("#p2Card").attr("src", "images/" + p2Card + ".svg");
+    $("#p1Card").attr("src", "images/" + p1Card + ".png");
+    $("#p2Card").attr("src", "images/" + p2Card + ".png");
 }
 
 function updateScores(p1Card, p2Card) {
