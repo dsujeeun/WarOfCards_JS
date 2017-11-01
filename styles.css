@@ -7,6 +7,11 @@ body {
 	color: #00008B;
 }
 
+#backToHome {
+	text-align: center;
+	margin-top: 40px;
+}
+
 a {
 	text-decoration: none;
 	border-bottom: 1px dashed #00BFFF;
@@ -31,7 +36,7 @@ a:hover {
 	background-image: linear-gradient(to right, #F0FFFF, #0000CD, #F0FFFF);
 }
 
-header h3 {
+header h1 {
 	text-align: center;
 	font-size: 50px;
 	font-family: "Tangerine", sans-serif;
@@ -42,15 +47,95 @@ header h3 {
 	clear: both;
 }
 
-.profile {
-	display: block;
-	width: 480px;
-	margin: auto;
-	padding: 5px;
-}
-
 .copyright {
 	font-size: 18px;
 	text-align: center;
 	line-height: 50%;
+}
+
+#gameTitle {
+	font-weight: bold;
+	font-size: 28px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#rulesHeading {
+	font-size: 20px;
+	text-align: center;
+}
+
+#rulesList {
+	display: block;
+	width: 600px;
+	margin: auto;
+	padding-bottom: 10px;
+}
+
+button {
+	font-family: "Saira Semi Condensed", sans-serif;
+	background-color: #F0FFFF;
+	border: 2px solid #00008B;
+	border-radius: 5px;
+	padding: 4px 6px 4px 6px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #00008B;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+button:hover {
+	font-family: "Saira Semi Condensed", sans-serif;
+	background-color: #00008B;
+	border: 2px solid #F0FFFF;
+	border-radius: 5px;
+	padding: 4px 6px 4px 6px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #F0FFFF;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+table {
+	margin: auto;
+	border: 2px solid #00008B;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+td {
+	padding: 2px;
+}
+
+#blankNames, #gameComments, #roundsRemaining, td, input[type="text"] {
+	text-align: center;
+}
+
+#gameComments, #roundsRemaining, #rowNames, #rowScores {
+	font-size: 20px;
+}
+
+#rowNames {
+	font-weight: 600;
+}
+
+input[type="text"] {
+	font-size: 18px;
+	font-family: "Saira Semi Condensed", sans-serif;
+	color: #00008B;
+	border: 1px solid #00008B;
+	border-radius: 5px;
+	width: 104px;
+	padding-left: 3px;
+	padding-right: 3px;
 }

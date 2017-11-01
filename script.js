@@ -12,7 +12,7 @@ $(document).ready(loadIntro);
 // load intro (first) page for game
 function loadIntro() {
     $("#gameBody").empty();
-    $("#gameBody").append("<h4>Game Rules</h4>");
+    $("#gameBody").append("<h4 id='rulesHeading'>Game Rules</h4>");
     $("#gameBody").append("<ol id='rulesList'></ol>");
     $("#rulesList").append("<li>You can play against the computer or" +
         " another person.</li>");
