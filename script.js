@@ -4,10 +4,27 @@ var p2Name = "";
 var p1Score = 0;
 var p2Score = 0;
 
-var deck = []; // created when user starts the game
+var deck = [];
+var cardImages = [];
 var roundsRemaining = 26;
 
-$(document).ready(loadIntro);
+$(document).ready( function() {
+    loadIntro();
+    // preload images
+    var img;
+    var card;
+    var suits = ["C", "D", "S", "H"];
+    for (var i = 1; i <= 13; ++i) {
+        for (var j = 0; j < suits.length; ++j) {
+            card = i + "_" + suits[j];
+            deck.push(card);
+            img = new Image(209, 303);
+            img.src = "images/" + card + ".png";
+            // store reference so browser does not get rid of images
+            cardImages.push(img);
+        }
+    }
+});
 
 // load intro (first) page for game
 function loadIntro() {
@@ -84,12 +101,7 @@ function askforPlayerNames(numPlayers) {
 }
 
 function startGame() {
-    // only create cards if deck is empty
-    if (deck.length == 0) {
-        createDeck();
-    }
     shuffleDeck();
-
     $("#gameBody").empty();
     $("#gameBody").append("<p id='roundsRemaining'>Rounds left: " +
         roundsRemaining +"</p>");
@@ -101,8 +113,8 @@ function startGame() {
     $("#rowScores").append("<td id='p1Score'>" + p1Score + "</td>");
     $("#rowScores").append("<td id='p2Score'>" + p2Score + "</td>");
     $("#tblGame").append("<tr id='rowCards'></tr>");
-    $("#rowCards").append("<td><img id='p1Card' src=''></td>");
-    $("#rowCards").append("<td><img id='p2Card' src=''></td>");
+    $("#rowCards").append("<td id='p1Card'></td>");
+    $("#rowCards").append("<td id='p2Card'></td>");
     $("#gameBody").append("<p id='gameComments'></p>");
     $("#gameBody").append("<button id='btnNextRound'>Next Round</button>");
     $("#btnNextRound").click(playOneRound);
@@ -117,28 +129,25 @@ function startGame() {
     playOneRound();
 }
 
-function createDeck() {
-    var suits = ["C", "D", "S", "H"];
-    for (var i = 1; i <= 13; ++i) {
-        for (var j = 0; j < suits.length; ++j) {
-            deck.push(i + "_" + suits[j]);
-        }
-    }
-}
-
 function shuffleDeck() {
+    var j;
+    var tempCard;
+    var tempCardImg;
     for (var i = 0; i < 52; ++i) {
-        var j = Math.floor((Math.random() * 52));
-        var temp = deck[j];
+        j = Math.floor((Math.random() * 52));
+        tempCard = deck[j];
+        tempCardImg = cardImages[j];
         deck[j] = deck[i];
-        deck[i] = temp;
+        cardImages[j] = cardImages[i];
+        deck[i] = tempCard;
+        cardImages[i] = tempCardImg;
     }
 }
 
 function playOneRound() {
     var p1CardIndex = (26 - roundsRemaining) * 2;
     var p2CardIndex = p1CardIndex + 1;
-    updateCards(deck[p1CardIndex], deck[p2CardIndex]);
+    updateCards(cardImages[p1CardIndex], cardImages[p2CardIndex]);
     var roundWinner = updateScores(deck[p1CardIndex], deck[p2CardIndex]);
     // if last round
     if (roundsRemaining == 1) {
@@ -167,9 +176,11 @@ function playOneRound() {
     $("#roundsRemaining").html("Rounds left: " + roundsRemaining);
 }
 
-function updateCards(p1Card, p2Card) {
-    $("#p1Card").attr("src", "images/" + p1Card + ".png");
-    $("#p2Card").attr("src", "images/" + p2Card + ".png");
+function updateCards(p1CardImg, p2CardImg) {
+    $("#p1Card").empty();
+    $("#p2Card").empty();
+    $("#p1Card").append(p1CardImg);
+    $("#p2Card").append(p2CardImg);
 }
 
 function updateScores(p1Card, p2Card) {
