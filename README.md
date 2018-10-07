@@ -2,8 +2,6 @@
 
 This is a game whose concept originated from an exercise in Joyce Farrell's 2015 C# book.   
 The implementation, however, is completely mine.   
-You can play this game online at
-[dharmeshsujeeun.com/WarOfCards](http://dharmeshsujeeun.com/WarOfCards)
 
 ## This is how the game works:   
 1. The user chooses to play against the computer or another person.
